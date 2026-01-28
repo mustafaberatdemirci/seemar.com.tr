@@ -1,6 +1,7 @@
 export interface Slab {
     id: number;
     name: string;
+    slug: string;  // SEO-friendly URL slug
     quarry: string;
     image: string;
     type: string;

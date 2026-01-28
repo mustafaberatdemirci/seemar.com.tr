@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageContext';
-import { getPath } from '../App';
+import { getPath } from '../routes';
 import SEO from './SEO';
 
 const Showroom: React.FC = () => {

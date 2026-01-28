@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getProjects, getSlabs } from '../constants';
 import { useLanguage } from './LanguageContext';
-import { getPath } from '../App';
+import { getPath } from '../routes';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import SEO from './SEO';
@@ -177,7 +177,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ id }) => {
                                             {materialProducts.map((product) => product && (
                                                 <Link
                                                     key={product.id}
-                                                    to={getPath(language, 'productDetail', { id: product.id })}
+                                                    to={getPath(language, 'productDetail', { slug: product.slug })}
                                                     className="group block"
                                                 >
                                                     <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-3">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from './LanguageContext';
-import { routes, getPath } from '../App';
+import { getPath, routes } from '../routes';
 
 const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -100,8 +100,8 @@ const Navbar: React.FC = () => {
         { id: 'limestone', label: t('cat.limestone'), image: '/images/products/401.webp' },
         { id: 'granite', label: t('cat.granite'), image: '/images/products/501.webp' },
         { id: 'dolomite', label: t('cat.dolomite'), image: '/images/products/601.webp' },
-        { id: 'mosaic', label: t('cat.mosaic'), image: '/images/products/10.webp' },
-        { id: 'splitface', label: t('cat.splitface'), image: '/images/products/12.webp' },
+        { id: 'mosaic', label: t('cat.mosaic'), image: '/images/products/701.webp' },
+        { id: 'splitface', label: t('cat.splitface'), image: '/images/products/1001.webp' },
         { id: 'tumbled', label: t('cat.tumbled'), image: '/images/products/801.webp' },
         { id: 'sand', label: t('cat.sand'), image: '/images/products/901.webp' },
     ];

@@ -4,7 +4,7 @@ import { getJobs } from '../constants';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useLanguage } from './LanguageContext';
-import { getPath } from '../App';
+import { getPath } from '../routes';
 
 interface CareerDetailProps {
     jobId: number;

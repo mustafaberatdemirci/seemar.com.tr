@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useLanguage } from './LanguageContext';
-import { getPath } from '../App';
+import { getPath } from '../routes';
 
 const NotFound: React.FC = () => {
     const { language, t } = useLanguage();

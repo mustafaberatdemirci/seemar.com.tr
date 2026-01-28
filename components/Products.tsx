@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getSlabs } from '../constants';
 import { useLanguage } from './LanguageContext';
-import { getPath } from '../App';
+import { getPath } from '../routes';
 import SEO from './SEO';
 
 const ITEMS_PER_PAGE = 15;
@@ -82,8 +82,8 @@ const Products: React.FC = () => {
         setVisibleCount(prev => prev + ITEMS_PER_PAGE);
     };
 
-    const handleCardClick = (id: number) => {
-        const detailPath = getPath(language, 'productDetail', { id });
+    const handleCardClick = (slug: string) => {
+        const detailPath = getPath(language, 'productDetail', { slug });
         navigate(detailPath);
     };
 
@@ -104,7 +104,7 @@ const Products: React.FC = () => {
                         "itemListElement": visibleSlabs.map((slab, index) => ({
                             "@type": "ListItem",
                             "position": index + 1,
-                            "url": window.location.origin + getPath(language, 'productDetail', { id: slab.id }),
+                            "url": window.location.origin + getPath(language, 'productDetail', { slug: slab.slug }),
                             "name": slab.name,
                             "image": window.location.origin + slab.image
                         }))
@@ -188,8 +188,8 @@ const Products: React.FC = () => {
                         return (
                             <div
                                 key={slab.id}
-                                onClick={() => handleCardClick(slab.id)}
-                                onKeyDown={(e) => e.key === 'Enter' && handleCardClick(slab.id)}
+                                onClick={() => handleCardClick(slab.slug)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleCardClick(slab.slug)}
                                 tabIndex={0}
                                 role="button"
                                 aria-label={`${slab.name} - ${slab.quarry}`}

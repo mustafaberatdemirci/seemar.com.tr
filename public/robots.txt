@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block development/test paths
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemaps
+Sitemap: https://www.seemar.com.tr/sitemap.xml
+Sitemap: https://www.seemar.com.tr/sitemap-products.xml

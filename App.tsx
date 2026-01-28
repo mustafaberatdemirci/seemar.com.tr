@@ -58,54 +58,7 @@ const PageLoader: React.FC = () => {
   );
 };
 
-// Route paths for each language
-export const routes = {
-  tr: {
-    home: '/tr',
-    products: '/tr/urunler',
-    productDetail: '/tr/urunler/:id',
-    about: '/tr/hakkimizda',
-    careers: '/tr/kariyer',
-    careerDetail: '/tr/kariyer/:id',
-    locations: '/tr/lokasyonlar',
-    contact: '/tr/iletisim',
-    quote: '/tr/teklif',
-    projects: '/tr/projeler',
-    projectDetail: '/tr/projeler/:id',
-    catalog: '/tr/katalog',
-    quoteConfirmed: '/tr/teklif/onaylandi',
-    privacy: '/tr/gizlilik-politikasi',
-    terms: '/tr/kullanim-kosullari',
-  },
-  en: {
-    home: '/en',
-    products: '/en/products',
-    productDetail: '/en/products/:id',
-    about: '/en/about',
-    careers: '/en/careers',
-    careerDetail: '/en/careers/:id',
-    locations: '/en/locations',
-    contact: '/en/contact',
-    quote: '/en/quote',
-    projects: '/en/projects',
-    projectDetail: '/en/projects/:id',
-    catalog: '/en/catalog',
-    quoteConfirmed: '/en/quote/confirmed',
-    privacy: '/en/privacy-policy',
-    terms: '/en/terms-of-use',
-  }
-};
 
-// Helper to get path for current language
-export const getPath = (lang: 'tr' | 'en', routeName: keyof typeof routes.tr, params?: Record<string, string | number>) => {
-  let path = routes[lang][routeName];
-  if (params) {
-    Object.entries(params).forEach(([key, value]) => {
-      path = path.replace(`:${key}`, String(value));
-    });
-  }
-  return path;
-};
 
 // Scroll to top on route change
 const ScrollToTop: React.FC = () => {
@@ -163,8 +116,8 @@ const ProductsPageWrapper: React.FC = () => {
 
 // Product detail page wrapper
 const ProductDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  return <ProductDetail id={Number(id)} />;
+  const { slug } = useParams<{ slug: string }>();
+  return <ProductDetail slug={slug || ''} />;
 };
 
 // Careers page wrapper
@@ -200,7 +153,7 @@ const AppRoutes: React.FC = () => {
           {/* Turkish Routes */}
           <Route path="/tr" element={<HomePage />} />
           <Route path="/tr/urunler" element={<ProductsPageWrapper />} />
-          <Route path="/tr/urunler/:id" element={<ProductDetailPage />} />
+          <Route path="/tr/urunler/:slug" element={<ProductDetailPage />} />
           <Route path="/tr/hakkimizda" element={<AboutUs />} />
           <Route path="/tr/kariyer" element={<CareersPageWrapper />} />
           <Route path="/tr/kariyer/:id" element={<CareerDetailPage />} />
@@ -217,7 +170,7 @@ const AppRoutes: React.FC = () => {
           {/* English Routes */}
           <Route path="/en" element={<HomePage />} />
           <Route path="/en/products" element={<ProductsPageWrapper />} />
-          <Route path="/en/products/:id" element={<ProductDetailPage />} />
+          <Route path="/en/products/:slug" element={<ProductDetailPage />} />
           <Route path="/en/about" element={<AboutUs />} />
           <Route path="/en/careers" element={<CareersPageWrapper />} />
           <Route path="/en/careers/:id" element={<CareerDetailPage />} />
