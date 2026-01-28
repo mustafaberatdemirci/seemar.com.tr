@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* Custom 3D & Animation Utilities */
+.perspective-1000 {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Force hide native select dropdown arrow */
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+}
+
+select::-ms-expand {
+  display: none !important;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Showroom 3D Base Utilities - Animation controlled via React state */
+.isometric-view {
+  transform-style: preserve-3d;
+}
+
+/* Custom Theme Colors for Tailwind v4 */
+@theme {
+  --color-primary: #c59f59;
+  --color-background-light: #f8f7f6;
+  --color-background-dark: #1e1a14;
+  --color-cinematic-black: #0F0F0F;
+  --color-anthracite: #1A1A1A;
+  --color-cool-grey: #282C34;
+  --color-metallic-silver: #E0E0E0;
+  --color-dark-silver: #B0B0B0;
+  --color-marble-grey: #e7e1cf;
+  --color-vein-gold: #ecb613;
+  --color-gallery-white: #fcfbf8;
+
+  --font-display: "Manrope", sans-serif;
+  --font-serif: "Cinzel", serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+/* Focus Visible - Keyboard Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove focus ring on mouse click */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip to main content link (hidden until focused) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Lazy Rendering - Improves Initial Paint Performance */
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Product Card Lazy Load Optimization */
+.product-card-image {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 400px;
+}
